@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milad Nazat Salim | Junior Software Developer & Flutter Specialist</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            accent: '#818cf8',
+                            dark: '#0f172a',
+                            cardDark: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-dark {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo / Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-400 to-brand-accent flex items-center justify-center text-slate-900 font-bold text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        M
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-tight text-white group-hover:text-brand-400 transition-colors">Milad Nazat Salim</span>
+                        <span class="block text-xs text-brand-400 font-medium">Flutter & Software Dev</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-4">
+                    <a href="#about" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">About</a>
+                    <a href="#skills" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Skills</a>
+                    <a href="#projects" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Projects</a>
+                    <a href="#experience" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Experience</a>
+                    <a href="#certifications" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Education & Activity</a>
+                    <a href="#contact" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <!-- Status Badge -->
+                    <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Open to Remote Work
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 backdrop-blur-lg px-4 pt-2 pb-6 space-y-2">
+            <a href="#about" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">About</a>
+            <a href="#skills" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">Skills</a>
+            <a href="#projects" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">Projects</a>
+            <a href="#experience" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">Experience</a>
+            <a href="#certifications" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">Education & Activity</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-brand-400">Contact</a>
+            <div class="pt-2">
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium w-max">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Open to Remote Work
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="pt-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <!-- Background Glow Effects -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <!-- Location & Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/80 text-slate-300 text-xs sm:text-sm font-medium mb-8 shadow-xl">
+                    <i class="fa-solid fa-location-dot text-brand-400"></i>
+                    <span>Erbil, Iraq</span>
+                    <span class="text-slate-600">•</span>
+                    <span class="text-brand-400">Remote Ready</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Crafting High-Performance <br class="hidden sm:inline"/>
+                    <span class="gradient-text">Flutter Mobile Apps</span> & Systems
+                </h1>
+
+                <!-- Subtitle / Executive Summary -->
+                <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
+                    Junior Software Developer combining hands-on mobile development across <span class="text-slate-200 font-medium">Dart, Firebase & Supabase</span> with practical <span class="text-slate-200 font-medium">Odoo ERP business operations</span> and modern AI-assisted engineering workflows.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-400 to-brand-accent text-slate-950 font-bold hover:shadow-lg hover:shadow-brand-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <span>View Featured Projects</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition-all flex items-center justify-center gap-2">
+                        <i class="fa-envelope text-brand-400"></i>
+                        <span>Contact Me</span>
+                    </a>
+                    <button onclick="downloadResume()" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/80 text-slate-300 hover:text-white font-medium transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-arrow-down text-slate-400"></i>
+                        <span>Resume</span>
+                    </button>
+                </div>
+
+                <!-- Fast Highlights Bar -->
+                <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left border-t border-slate-800 pt-10">
+                    <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800">
+                        <div class="text-2xl font-bold text-white mb-1">Flutter / Dart</div>
+                        <div class="text-xs text-slate-400">Mobile Stack Specialty</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800">
+                        <div class="text-2xl font-bold text-white mb-1">B.Sc. CS</div>
+                        <div class="text-xs text-slate-400">Salahaddin University</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800">
+                        <div class="text-2xl font-bold text-white mb-1">Odoo ERP</div>
+                        <div class="text-xs text-slate-400">Operations & Workflow</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800">
+                        <div class="text-2xl font-bold text-emerald-400 mb-1">AI-Assisted</div>
+                        <div class="text-xs text-slate-400">Accelerated Dev Flow</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
+                    <!-- Left Column: Key Highlights Card -->
+                    <div class="md:col-span-5">
+                        <div class="relative rounded-2xl glass-dark p-8 border border-slate-700/60 shadow-2xl overflow-hidden">
+                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-400/10 rounded-full blur-2xl"></div>
+                            
+                            <div class="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-400 text-2xl mb-6 shadow-inner">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white mb-4">Milad Nazat Salim</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Computer Science Graduate (Salahaddin University, 2026) based in Erbil, Iraq. Dedicated to constructing robust cross-platform applications and integrating enterprise software.
+                            </p>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-brand-400"></i>
+                                    <span>Flutter Mobile App Development</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-brand-400"></i>
+                                    <span>Firebase & Supabase Cloud Integration</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-brand-400"></i>
+                                    <span>Odoo ERP Systems & Inventory Workflow</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-brand-400"></i>
+                                    <span>Fluent English & Native Kurdish</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Narrative Detail -->
+                    <div class="md:col-span-7 space-y-6">
+                        <div>
+                            <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Background & Focus</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Bridging Code, AI & Business Workflows</h2>
+                        </div>
+
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            I am a Junior Software Developer with hands-on experience delivering mobile solutions for operational businesses like <strong class="text-brand-400">Mayfair Shop</strong> and <strong class="text-brand-400">Suqsayarat</strong>. My skill set spans the complete Flutter ecosystem, including Dart, state management, custom UI layouts, and cloud backends such as Firebase and Supabase.
+                        </p>
+
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Beyond standard app engineering, I bring operational insight gained from managing end-to-end Odoo ERP operations. This unique dual exposure enables me to write code tailored to operational realities and business logic. Additionally, I extensively utilize modern AI tools to accelerate debugging, rapid prototyping, and clean architecture implementation.
+                        </p>
+
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                                <i class="fa-solid fa-graduation-cap text-brand-accent text-lg"></i>
+                                <div>
+                                    <div class="text-xs text-slate-400">Education</div>
+                                    <div class="text-sm font-semibold text-slate-200">B.Sc. Computer Science</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                                <i class="fa-solid fa-robot text-brand-400 text-lg"></i>
+                                <div>
+                                    <div class="text-xs text-slate-400">Workflow</div>
+                                    <div class="text-sm font-semibold text-slate-200">AI-Augmented Development</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/40 border-t border-slate-800/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Technical Capabilities</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Tech Stack & Specializations</h2>
+                    <p class="text-slate-400 text-sm mt-3">Comprehensive tools and technologies I utilize to build modern software solutions.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Skill Card: Mobile Dev -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-brand-400/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-400/10 text-brand-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Mobile Development</h3>
+                                <span class="text-xs text-slate-400">Core Expertise</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Flutter & Dart</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>State Management (Provider / Bloc)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Responsive & Adaptive UI Design</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Native Device Feature Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card: Backend & Cloud -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-brand-accent/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Backend & Cloud</h3>
+                                <span class="text-xs text-slate-400">Infrastructure & APIs</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Firebase (Auth, Firestore, Storage)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Supabase (PostgreSQL & Auth)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>REST API Integration</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Stripe Payment Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card: Languages & Web -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-emerald-400/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Languages & Web</h3>
+                                <span class="text-xs text-slate-400">Programming Foundations</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Dart & C++</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>C# & PHP</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>HTML5 & CSS3</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Object-Oriented Programming (OOP)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card: Databases -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-amber-400/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Databases</h3>
+                                <span class="text-xs text-slate-400">Storage & Relations</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>PostgreSQL (Supabase)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Cloud Firestore (NoSQL)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>MySQL Relational Database</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Data Modeling & Querying</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card: AI-Assisted Dev -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-purple-400/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-400/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">AI-Assisted Dev</h3>
+                                <span class="text-xs text-slate-400">Modern Velocity</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Prompted Code Generation & Refactoring</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Automated Debugging & Troubleshooting</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Speed-Optimized Feature Delivery</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>AI API & Intelligent Integrations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Card: ERP & Operations -->
+                    <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-pink-400/40 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-400/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">ERP & Systems</h3>
+                                <span class="text-xs text-slate-400">Odoo & Business Flow</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Odoo ERP Setup & Day-to-Day Ops</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Inventory & POS Management</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Staff Workflow Training</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Technical Partner Support Contact</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Portfolio</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Projects</h2>
+                    </div>
+
+                    <!-- Category Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="projectFilters">
+                        <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-brand-400 text-slate-950 transition-all">All</button>
+                        <button data-filter="flutter" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 text-slate-300 hover:text-white transition-all">Flutter / Mobile</button>
+                        <button data-filter="firebase" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 text-slate-300 hover:text-white transition-all">Firebase / Cloud</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projectsGrid">
+
+                    <!-- Project Card: Smart Hub App -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="flutter">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">Daycare Management</span>
+                                <i class="fa-solid fa-child-reaching text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Smart Hub Daycare App</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Specialized mobile solution designed for children's daycare services (ages 4 to 14), featuring dedicated dual interfaces for Parent tracking and Staff operational control.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Parent Dashboard</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Staff Dashboard</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Dart</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Children Care Platform</span>
+                            <span class="text-brand-400 font-medium">Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card: Mayfair Shop App -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="flutter">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-400/10 text-brand-400 border border-brand-400/20">Client App / Active Dev</span>
+                                <i class="fa-solid fa-store text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Mayfair Shop Mobile App</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Production-grade Flutter application built for Mayfair Shop in Erbil, connected directly to their active e-commerce web platform.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Dart</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">REST API</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Odoo Integration</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Medcare Software Team</span>
+                            <span class="text-emerald-400 font-medium"><i class="fa-solid fa-spinner animate-spin mr-1"></i> In Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card: Suqsayarat App -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="flutter">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-400/10 text-indigo-400 border border-indigo-400/20">Automotive Platform</span>
+                                <i class="fa-solid fa-car text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Suqsayarat Mobile App</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Mobile platform companion app developed for Suqsayarat automotive business, integrated with live web data services.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Dart</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">REST APIs</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Medcare Software Team</span>
+                            <span class="text-emerald-400 font-medium"><i class="fa-solid fa-spinner animate-spin mr-1"></i> In Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card: Study Buddy App -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="flutter">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-400/10 text-purple-400 border border-purple-400/20">AI Assistant</span>
+                                <i class="fa-solid fa-brain text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Study Buddy App</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                AI-powered study companion app helping students organize learning materials, generate study summaries, and track academic goals.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Supabase Auth</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">PostgreSQL</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">AI APIs</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Academic Project</span>
+                            <span class="text-brand-400 font-medium">Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card: Restaurant Management System -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="firebase">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-400/10 text-amber-400 border border-amber-400/20">Role-Based POS</span>
+                                <i class="fa-solid fa-utensils text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Restaurant Management System</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Multi-role management solution featuring dedicated real-time dashboards for Waiters, Kitchen Staff, and Cashiers with QR ordering.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Firebase Firestore</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">QR Code Tech</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Real-Time Sync</span>
+                            <span class="text-brand-400 font-medium">Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card: E-Commerce Application -->
+                    <div class="project-card rounded-2xl glass-dark border border-slate-800 overflow-hidden flex flex-col justify-between" data-category="firebase">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">Festival Showcase</span>
+                                <i class="fa-solid fa-cart-shopping text-slate-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">E-Commerce Application</h3>
+                            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                                Mobile store platform presented at Salahaddin Tech Festival. Features dynamic catalog management, cart logic, and Stripe payments.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Firebase</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Stripe SDK</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-800/40 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                            <span>Salahaddin Tech Fest</span>
+                            <span class="text-brand-400 font-medium">Exhibited</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Timeline Section -->
+        <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/40 border-t border-slate-800/60">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Career History</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Professional Experience</h2>
+                    <p class="text-slate-400 text-sm mt-3">Combining software development and ERP system operations in active business environments.</p>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-slate-800 ml-4 sm:ml-32 space-y-12">
+
+                    <!-- Timeline Item 1: Medcare -->
+                    <div class="relative pl-8 sm:pl-10 group">
+                        <!-- Date Badge (Desktop Left Offset) -->
+                        <div class="sm:absolute -left-36 top-1.5 mb-2 sm:mb-0 text-xs font-semibold text-brand-400 tracking-wider uppercase">
+                            Sep 2026 – Present
+                        </div>
+
+                        <!-- Dot Marker -->
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-brand-400 group-hover:scale-125 transition-transform"></div>
+
+                        <!-- Content Card -->
+                        <div class="rounded-2xl glass-dark p-6 sm:p-8 border border-slate-800 hover:border-slate-700 transition-all">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Junior Software Developer & ERP Operations</h3>
+                                    <div class="text-brand-400 font-medium text-sm">Medcare — Erbil, Iraq</div>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-max">Present Role</span>
+                            </div>
+
+                            <!-- Dual Experience Tabs/Highlights -->
+                            <div class="space-y-4">
+                                <!-- Software Sub-block -->
+                                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+                                    <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-code"></i> Software Development & AI Workflow
+                                    </h4>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-400 mt-1">•</span>
+                                            <span>Collaborating with another developer to build Flutter mobile applications for <strong>Mayfair Shop</strong> and <strong>Suqsayarat</strong>.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-400 mt-1">•</span>
+                                            <span>Leveraging AI-assisted development tools extensively for faster code generation, bug fixing, and architecture optimization.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-400 mt-1">•</span>
+                                            <span>Auditing live website functionality to identify potential improvements and mobile integration features.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- ERP Sub-block -->
+                                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+                                    <h4 class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-boxes-stacked"></i> ERP & Business Operations (Odoo)
+                                    </h4>
+                                    <ul class="space-y-2 text-sm text-slate-300">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-pink-400 mt-1">•</span>
+                                            <span>Overseeing day-to-day Odoo ERP operations from initial setup to enterprise support handover.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-pink-400 mt-1">•</span>
+                                            <span>Monitoring store inventory, sales cycles, and operational cash workflows.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-pink-400 mt-1">•</span>
+                                            <span>Training cashiers and team members on Odoo interfaces and handling main technical contact with Odoo partners.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2: Korek Telecom -->
+                    <div class="relative pl-8 sm:pl-10 group">
+                        <!-- Date Badge -->
+                        <div class="sm:absolute -left-36 top-1.5 mb-2 sm:mb-0 text-xs font-semibold text-slate-400 tracking-wider uppercase">
+                            Internship
+                        </div>
+
+                        <!-- Dot Marker -->
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-slate-600 group-hover:scale-125 transition-transform"></div>
+
+                        <!-- Content Card -->
+                        <div class="rounded-2xl glass-dark p-6 border border-slate-800 hover:border-slate-700 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Telecom & Operations Intern</h3>
+                                <span class="text-xs text-slate-400">Erbil, Iraq</span>
+                            </div>
+                            <div class="text-brand-400 font-medium text-sm mb-3">Korek Telecom</div>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Gained real-world workplace training in telecommunications operations, cross-departmental coordination, and enterprise communication protocols.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education, Certifications & Community Activities -->
+        <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Credentials</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Education & Activities</h2>
+                    <p class="text-slate-400 text-sm mt-3">Academic degree, certified professional development, and community engagement.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Education Card -->
+                    <div class="rounded-2xl glass-dark p-8 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-brand-400/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-400 tracking-wider uppercase">Graduated May 2026</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2">Bachelor of Science in Computer Science</h3>
+                            <p class="text-slate-300 font-medium text-base mb-4">Salahaddin University — Erbil, Iraq</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Comprehensive curriculum focused on software engineering principles, algorithm design, data structures, relational database management systems, and object-oriented programming.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400">
+                            <i class="fa-solid fa-award text-amber-400"></i>
+                            <span>Presented E-Commerce Capstone at Tech Festival</span>
+                        </div>
+                    </div>
+
+                    <!-- Certifications & Community Card -->
+                    <div class="rounded-2xl glass-dark p-8 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 text-brand-accent flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-accent tracking-wider uppercase">Certificates & Volunteer Work</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-6">Activities & Leadership</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                                    <h4 class="text-sm font-bold text-white flex items-center justify-between">
+                                        <span>TIEC Program Certificate</span>
+                                        <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                                    </h4>
+                                    <p class="text-xs text-slate-400 mt-1">Completed professional training focusing on workplace readiness, effective team communication, leadership, and career growth.</p>
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                                    <h4 class="text-sm font-bold text-white flex items-center justify-between">
+                                        <span>HITEX Technology Exhibition</span>
+                                        <span class="text-xs text-slate-400 font-normal">Volunteer</span>
+                                    </h4>
+                                    <p class="text-xs text-slate-400 mt-1">Assisted in organizing and managing venue logistics for technology showcases and enterprise exhibitions in Erbil.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-slate-800 flex items-center gap-4 text-xs text-slate-400">
+                            <span><i class="fa-solid fa-language text-brand-400 mr-1"></i> Kurdish: Native</span>
+                            <span><i class="fa-solid fa-globe text-brand-400 mr-1"></i> English: Fluent</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/60 border-t border-slate-800/60 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Info -->
+                    <div class="md:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase">Get In Touch</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Let's Work Together</h2>
+                            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                                Available for remote Flutter engineering positions, software development roles, or technical operations inquiries.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4">
+                            <!-- Email Card -->
+                            <a href="mailto:miladnazat6@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-brand-400 transition-colors group">
+                                <div class="w-12 h-12 rounded-lg bg-brand-400/10 text-brand-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400">Email Directly</div>
+                                    <div class="text-sm font-semibold text-slate-200">miladnazat6@gmail.com</div>
+                                </div>
+                            </a>
+
+                            <!-- Phone Card -->
+                            <a href="tel:+9647502276285" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-brand-400 transition-colors group">
+                                <div class="w-12 h-12 rounded-lg bg-emerald-400/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400">Phone / WhatsApp</div>
+                                    <div class="text-sm font-semibold text-slate-200">+964 750 227 6285</div>
+                                </div>
+                            </a>
+
+                            <!-- Location Card -->
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                                <div class="w-12 h-12 rounded-lg bg-brand-accent/10 text-brand-accent flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400">Location</div>
+                                    <div class="text-sm font-semibold text-slate-200">Erbil, Iraq (Open to Remote)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="md:col-span-7">
+                        <div class="rounded-2xl glass-dark p-8 border border-slate-800">
+                            <h3 class="text-xl font-bold text-white mb-6">Send a Message</h3>
+                            
+                            <form id="contactForm" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-medium text-slate-400 mb-1">Your Name</label>
+                                        <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-slate-400 mb-1">Your Email</label>
+                                        <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm transition-colors">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-400 mb-1">Subject</label>
+                                    <input type="text" required placeholder="Project Inquiry / Job Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm transition-colors">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-400 mb-1">Message</label>
+                                    <textarea rows="4" required placeholder="Hello Milad, I would like to discuss..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm transition-colors resize-none"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-400 to-brand-accent text-slate-950 font-bold hover:shadow-lg hover:shadow-brand-500/20 transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © 2026 Milad Nazat Salim. All rights reserved.
+            </div>
+            <div class="flex items-center gap-4 text-slate-400">
+                <span>Erbil, Iraq</span>
+                <span>•</span>
+                <span>Computer Science Graduate</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="px-6 py-4 rounded-xl bg-slate-800 border border-brand-400/40 text-white shadow-2xl flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <div class="font-bold text-sm" id="toastTitle">Success!</div>
+                <div class="text-xs text-slate-300" id="toastMsg">Your message has been received.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-400', 'text-slate-950');
+                    b.classList.add('bg-slate-800', 'text-slate-300');
+                });
+                btn.classList.add('active', 'bg-brand-400', 'text-slate-950');
+                btn.classList.remove('bg-slate-800', 'text-slate-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Message Sent!', 'Thank you for reaching out, Milad will get back to you shortly.');
+            contactForm.reset();
+        });
+
+        // Resume Download Action
+        function downloadResume() {
+            showToast('Downloading Resume...', 'Generating Milad Nazat Salim\'s official CV.');
+            setTimeout(() => {
+                window.print();
+            }, 800);
+        }
+
+        // Toast Notification Function
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMsg').textContent = message;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+
+        // Scroll Navbar Glass Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800');
+            } else {
+                navbar.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800');
+            }
+        });
+    </script>
+</body>
+</html>
